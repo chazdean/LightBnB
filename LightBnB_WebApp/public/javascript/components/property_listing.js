@@ -29,9 +29,9 @@ $(() => {
             ${(isReservation && !isReservation.upcoming) ? 
               `<button id="add-review-${property.id}" class="add-review-button">Add a Review</button>` : ``
             } 
-            ${!isReservation ? `<span id="review-details-${property.id}" class="review_details">
-              Browse ${property.review_count} reviews
-            </span>` : ``}
+            ${!isReservation ? `<div id="review-details-${property.id}" class="review_details">
+              <span class="review_count"> Browse ${property.review_count} reviews </span>
+            </div>` : ``}
           </footer>
         </section>
       </article>
