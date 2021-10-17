@@ -1,5 +1,4 @@
 $(() => {
-
   const $updateReservationForm = $(`
     <form action="/api/reservations" method="post" id="update-reservation-form" class="update-reservation-form">
       <h3 id="update-reservation-header">Start Date</h3>
@@ -233,7 +232,7 @@ $(() => {
       })
     } else {
       console.log(errorMessage);
-      // we can redisplay the form by pulling the information in the datatag!
+
       const dataObj = {
         id: $(this).find('#datatag-reservation-id').text(),
         start_date: $(this).find('#datatag-start-date').text(),

@@ -1,5 +1,4 @@
 $(() => {
-
   const $main = $('#main-content');
 
   window.views_manager = {};

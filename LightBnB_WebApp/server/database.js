@@ -132,7 +132,7 @@ const getUpcomingReservations = function(guest_id, limit = 10) {
 exports.getUpcomingReservations = getUpcomingReservations;
 
 const updateReservation = function(reservationData) {
-  // base string
+
   let queryString = `UPDATE reservations SET `;
   const queryParams = [];
   if (reservationData.start_date) {
