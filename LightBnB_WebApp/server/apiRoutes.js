@@ -37,7 +37,7 @@ module.exports = function(router, database) {
     }
   });
 
-  router.post('reservations/:reservationId', (req, res) => {
+  router.post('/reservations/:reservationId', (req, res) => {
     console.log("hello")
     const reservationId = req.params.reservationId;
     database.updateReservation({...req.body, reservation_id: reservationId})
@@ -87,6 +87,14 @@ module.exports = function(router, database) {
   router.get('/reviews/:propertyId', (req, res) => {
     const propertyId = req.params.propertyId
     database.getReviewsByProperty(propertyId)
+    .then(reviews => {
+      res.send(reviews);
+    })
+  })
+
+  router.post('/reviews/:reservationId', (req, res) => {
+    const reservationId = req.params.reservationId;
+    database.addReview({...req.body})
     .then(reviews => {
       res.send(reviews);
     })

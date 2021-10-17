@@ -13,9 +13,11 @@ $(() => {
     $newReservationForm.detach();
     $updateReservationForm.detach();
     $propertyReviews.detach();
-
+    $newReviewForm.detach();
+    $('#reservation-details').detach();
+    
     let dataTag = "";
-
+    
     switch (item) {
       case 'listings':
         $propertyListings.appendTo($main);
@@ -51,7 +53,8 @@ $(() => {
             <h4>Start date: ${moment(data.start_date).format("MMMM DD, YYYY")}</h4>
             <h4>End date: ${moment(data.end_date).format("MMMM DD, YYYY")}</h4>
           </div>
-        `
+        `;
+
         // if there's an error message we want to display that as well:
         const errorMessage = data.error_message ? `<h4>${data.error_message}</h4>` : ``;
         $(reservationDetails).appendTo($main);
@@ -74,6 +77,12 @@ $(() => {
           propertyReviews.addReviews(reviews)
         })
         $propertyReviews.appendTo($main);
+        break;
+      case 'newReview':
+        dataTag = `<h4>${data}</h4>`;
+        $newReviewForm.appendTo($main);
+        $("#datatag").empty()
+        $(dataTag).appendTo("#datatag");
         break;
     }
   }
